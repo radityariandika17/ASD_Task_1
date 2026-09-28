@@ -8,6 +8,12 @@ string name = "Raditya Riandika irfani"; // put your name here
 string ID = "103012500385"; // put your student id here
 int group_id = 5; // your Group Number here (1-8)
 
+/** WRITE DOWN YOUR INFORMATION HERE */
+string name = "Diego Fortuna"; // put your name here
+string ID = "103012530028"; // put your student id here
+int group_id = 5; // your Group Number here (1-8)
+
+
 
 /** FUNCTIONS LIST, DO NOT MODIFY THESE */
 void insert_sort(int arr[], int &n, int x);
@@ -147,20 +153,20 @@ string first_and_second(int arr[], int n) {
     // YOUR CODES HERE
     //-----------------------
 
-    int max = arr[0];
-    int smax = arr[0];
-    for (int i = 1; i < n; i++) {
-        if (arr[i] > max) {
-            smax = max;
-            max = arr[i];
-        } else if (arr[i] > smax && arr[i] < max) {
-            smax = arr[i];
-        }
-    }
-    
+    int greatest = arr[0];
+int second = arr[0];
 
-    //-----------------------
-    return "greatest = " + to_string(max) + ", second = " + to_string(smax);
+for (int i = 1; i < n; i++) {
+    if (arr[i] > greatest) {
+        second = greatest;
+        greatest = arr[i];
+    }
+    else if (arr[i] > second && arr[i] != greatest) {
+        second = arr[i];
+    }
+}
+
+return "greatest = " + to_string(greatest) + ", second = " + to_string(second);
 }
 
 
