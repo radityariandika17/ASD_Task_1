@@ -2,10 +2,9 @@
 
 using namespace std;
 
-
 /** WRITE DOWN YOUR INFORMATION HERE */
-string name = "Raditya Riandika irfani"; // put your name here
-string ID = "103012500385"; // put your student id here
+string name = "Diego Fortuna"; // put your name here
+string ID = "103012530028"; // put your student id here
 int group_id = 5; // your Group Number here (1-8)
 
 
@@ -55,18 +54,14 @@ void insert_sort(int arr[], int &n, int x) {
 
     // YOUR CODES HERE
     //-----------------------
-    int i = 0;
-    while (i < n && arr[i]<x){
-        i++;
+    int i = n - 1;
+    while (i >= 0 && arr[i] > x) {
+        arr[i + 1] = arr[i];
+        i--;
     }
-    int j = n;
-    while (j > i) {
-        arr[j] = arr[j-1];
-        j--;
-
-    }
-    arr[i] = x;
+    arr[i + 1] = x;
     n++;
+
     
 
     //-----------------------
@@ -147,20 +142,24 @@ string first_and_second(int arr[], int n) {
     // YOUR CODES HERE
     //-----------------------
 
-    int max = arr[0];
-    int smax = arr[0];
+   string first_and_second(int arr[], int n) {
+    int first = arr[0];
+    int second = arr[0];
+
     for (int i = 1; i < n; i++) {
-        if (arr[i] > max) {
-            smax = max;
-            max = arr[i];
-        } else if (arr[i] > smax && arr[i] < max) {
-            smax = arr[i];
+        if (arr[i] > first) {
+            second = first;
+            first = arr[i];
+        } else if (arr[i] > second && arr[i] != first) {
+            second = arr[i];
         }
     }
+
+    return "greatest = " + to_string(first) + ", second = " + to_string(second);
+}
     
 
     //-----------------------
-    return "greatest = " + to_string(max) + ", second = " + to_string(smax);
 }
 
 
@@ -237,8 +236,12 @@ void view_data_2(int arr[], int n) {
 
     // YOUR CODES HERE
     //-----------------------
-    for (int i = n-1;i>=0;i--){
-        cout<<arr[i]<<", ";
+    for (int i = n - 1; i >= 0; i--) {
+        cout << arr[i];
+
+        if (i > 0) {
+            cout << ", ";
+        }
     }
 
     //-----------------------
